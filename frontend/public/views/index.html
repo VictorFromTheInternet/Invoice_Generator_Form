@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Generator</title>
+
+    <script src="../scripts/main.js" defer></script>
+    <script src="../scripts/table.js" defer></script>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/table.css">
+    <link rel="stylesheet" href="../styles/icons.css">
+
+    <!-- Google icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+
+    
+</head>
+<body>
+    
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li class="nav-item selected">
+                <a href="#form" class="nav-link">                    
+                    <span class="material-icons">
+                        edit
+                        </span>
+                    
+                    <span class="link-text">Form</span>
+                </a>
+                <div class="nav-selected-indicator"></div>
+            </li>
+            <li class="nav-item">
+                <a href="#dashboard" class="nav-link">                                        
+                    <!-- <span class="material-icons">
+                        table
+                        </span> -->
+                        <span class="material-symbols-outlined">
+                            table
+                        </span>
+                    <span class="link-text">Dashboard (Coming Soon!!!)</span>
+                </a>
+            </li>                                    
+        </ul>      
+
+    </nav>
+
+    <main>                
+
+        <!-- Invoice Details -->        
+        <section>
+            <h1>Business Details</h1>
+            <form id="formBusinessDetails">                                                
+
+                <!-- company details -->
+                <div class="row-grid-auto">
+                    <div class="col-span-6">
+                        <!-- your company details & address -->
+                        <h3>Your Company</h3>
+                        <div class="row-grid-template">                    
+                            <!-- name, email, phone, fax -->
+                            <div class="col-span-3">
+                                <label for="companyName"> Name:</label>
+                                <input id="companyName" name="companyName" type="text" value="" required>
+                            </div>
+                            <div class="col-span-3">
+                                <label for="companyEmail"> Email:</label>
+                                <input id="companyEmail" name="companyEmail" type="text" value="" required>
+                            </div>
+                            <div class="col-span-3">
+                                <label for="companyPhone"> Phone:</label>
+                                <input id="companyPhone" name="companyPhone" type="text" value="" required>
+                            </div>
+                            <div class="col-span-3">
+                                <label for="companyFax"> Fax:</label>
+                                <input id="companyFax" name="companyFax" type="text" value="" required>
+                            </div>
+                        </div>
+
+                        <div class="row-grid-template">
+                            <div class="col-span-3">
+                                <label for="companyAddress"> Address:</label>
+                                <input id="companyAddress" name="companyAddress" type="text" value="" required>
+                            </div>
+                            <div class="col-span-3">
+                                <label for="companyCity"> City:</label>
+                                <input id="companyCity" name="companyCity" type="text" value="" required>
+                            </div>
+                            <div class="col-span-2">
+                                <label for="companyState"> State:</label>
+                                <input id="companyState" name="companyState" type="text" value="" required>
+                            </div>
+                            <div class="col-span-2">
+                                <label for="companyZip"> Zip:</label>
+                                <input id="companyZip" name="companyZip" type="text" value="" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-span-6">
+                        <!-- to company details & address -->    
+                        <h3>To Company</h3>            
+                        <div class="row-grid-template">                                        
+                            <div class="col-span-3">
+                                <label for="toName"> Name:</label>
+                                <input id="toName" name="toName" type="text" value="" required>
+                            </div>
+                            <div class="col-span-3">
+                                <label for="toEmail"> Email:</label>
+                                <input id="toEmail" name="toEmail" type="text" value="" required>
+                            </div>
+                            <div class="col-span-3">
+                                <label for="toPhone"> Phone:</label>
+                                <input id="toPhone" name="toPhone" type="text" value="" required>
+                            </div>
+                            <div class="col-span-3">
+                                <label for="toFax"> Fax:</label>
+                                <input id="toFax" name="toFax" type="text" value="" required>
+                            </div>
+                        </div>
+                        <div class="row-grid-template">
+                            <div class="col-span-3">
+                                <label for="toAddress"> Address:</label>
+                                <input id="toAddress" name="toAddress" type="text" value="" required>
+                            </div>
+                            <div class="col-span-3">
+                                <label for="toCity"> City:</label>
+                                <input id="toCity" name="toCity" type="text" value="" required>
+                            </div>
+                            <div class="col-span-2">
+                                <label for="toState"> State:</label>
+                                <input id="toState" name="toState" type="text" value="" required>
+                            </div>
+                            <div class="col-span-2">
+                                <label for="toZip"> Zip:</label>
+                                <input id="toZip" name="toZip" type="text" value="" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+                                                
+            </form>            
+        </section>
+        
+        <!-- Table Line Items & Calculations -->        
+        <section>
+            <h1>Invoice Details</h1>
+            <form id="formTableLineItems">
+                
+                <div class="row-grid-template">
+                    <div class="col-span-3">
+                        <label for="invoiceNumber"> Invoice Number:</label>
+                        <input id="invoiceNumber" name="invoiceNumber" type="text" value="" required>
+                    </div>
+                    <div class="col-span-3">
+                        <label for="invoiceDate"> Invoice Date:</label>
+                        <input id="invoiceDate" name="invoiceDate" type="date" value="" required>
+                    </div>
+                    <div class="col-span-3">
+                        <label for="invoiceDueDate"> Invoice Due Date:</label>
+                        <input id="invoiceDueDate" name="invoiceDueDate" type="date" value="" required>
+                    </div>
+                </div>
+                
+                <table class="table" id="tableLineItems">
+                    <thead>
+                        <tr>
+                            <th>Quantity</th>
+                            <th>Item</th>
+                            <th>Description</th>
+                            <th>Unit Price</th>       
+                                       
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input class="quantity" type="number" value="0" min="0" required></td>
+                            <td><input class="item" type="text" placeholder="Name" required></td>
+                            <td><input class="description" type="text" placeholder="Lorem Ipsum ..." required></td>
+                            <td><input class="unitPrice" type="number" value="0" min="0" required></td>
+                        </tr>                    
+                        
+                    </tbody>   
+                    <tfoot>
+                        <tr>                        
+                            <td colspan="2" class="blank"></td>
+                            <th >Subtotal</th>
+                            <td ><input id="subtotal" class="subtotal" type="number" value="0" min="0" required disabled></td>                        
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="blank"></td>
+                            <th >Taxes</th>
+                            <td ><input id="taxes" class="taxes" type="number" value="0" min="0" required ></td>                        
+                        </tr>
+                        <tr>                     
+                            <td colspan="2" class="blank"></td>
+                            <th >Fees</th>
+                            <td ><input id="fees" class="fees" type="number" value="0" min="0" required ></td>                        
+                        </tr>
+                        <tr>                     
+                            <td colspan="2" class="blank"></td>
+                            <th >Total</th>
+                            <td ><input id="total" class="total" type="number" value="0" min="0" required disabled></td>                        
+                        </tr>
+                    </tfoot>
+                               
+                </table>
+
+                <div class="row-grid-template">
+                    <div class="col-span-3">
+                        <button type="button" class="btn btn-secondary" id="btnAddRow">Add Row</button>
+                    </div>
+                    <div class="col-span-3">
+                        <button type="button" class="btn btn-secondary" id="btnRemoveRow">Remove Row</button>
+                    </div>
+                    <div class="col-span-3"></div>
+                    <div class="col-span-3">
+                        <button type="submit" class="btn btn-secondary" id="btnCalcTotals">Calc Totals</button>
+                    </div>
+                </div>
+                                                
+            </form>                        
+        </section>
+
+        <!-- PDF Iframe -->        
+        <section class="pdf-container">
+            <h1>Invoice Preview</h1>
+            <!-- template selection -->
+            <div class="row-grid-template">
+                <div class="col-span-3">                        
+                    <label for="template">Template:</label>                
+                    <select name="template" id="template" >
+                        <option value="index">index</option>
+                        <option value="invoice-basic" selected>invoice-basic</option>
+                    </select>                             
+                </div>
+
+                <div class="col-span-3">                        
+                    <button id="btnDemo" class="btn btn-primary">Generate Invoice PDF</button>   
+                    <span id="loadingSpinnerBtnDemo" class="loading-spinner hidden" ></span>                                                           
+                </div>
+                        
+                <div class="col-span-3">
+                    <button id="btnSubmit" class="btn btn-primary" disabled>Submit Invoice PDF</button>   
+                    <span id="loadingSpinnerBtnSubmit" class="loading-spinner hidden" ></span>                                                           
+                </div>    
+                <div class="col-span-3"></div>
+                
+            </div>
+            <iframe id="pdf-iframe" hidden>
+                
+            </iframe>
+        </section>
+    </main>
+
+    <footer>
+    </footer>    
+</body>
+</html>
